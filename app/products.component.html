@@ -1,0 +1,19 @@
+<div class="m-t-1">
+<div *ngFor="let product of products" class="col-sm-6 col-md-4">
+	<div class="card p-a-0">
+	<h6 class="card-header">{{product.name}}</h6>
+	<img *ngIf="product.image" class="card-img-left product-img img-rounded" [src]="product.image" alt="Card image cap"  onError="this.src='images/noimg.png'" />
+	<div class="d-inline-block m-l-1">
+	<small class="text-muted m-b"><strong>Purchased by:&nbsp;</strong><span class="m-a">{{product.purchased_by}}</span></small>
+	<div clas="m-b"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;<span class="m-a">{{product.price | currency:'INR'}}</span></div>
+	<div class="m-b">
+		<i class="fa fa-tags" aria-hidden="true"></i>&nbsp;<span class="tag tag-default m-a" *ngFor="let tag of product.tags">{{tag}}</span>
+	</div>
+	<div class="m-b">
+		<i class="fa fa-link" aria-hidden="true"></i>&nbsp;<a href="{{product.link}}" target="_blank"><small>View</small></a>
+	</div>
+	<small><rating [(ngModel)]="product.rating" [readonly]="true" ></rating></small>
+	</div>
+	</div>
+</div>
+</div>
